@@ -1,0 +1,409 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="BIJUBD" Class="ECEntidadesDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=DESKTOP-AOO28E5\SQLEXPRESS;Initial Catalog=BIJUBD;Persist Security Info=True;User ID=sa" SettingsObjectName="ENTITY.Properties.Settings" SettingsPropertyName="BIJUBDConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.CategoriaProduto" Member="CategoriaProdutos">
+    <Type Name="CategoriaProduto">
+      <Column Name="idCategoria" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="codigo" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="descricao" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Vendedor" Member="Vendedors">
+    <Type Name="Vendedor">
+      <Column Name="idVendedor" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="data" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="nome" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="cpf" Type="System.String" DbType="VarChar(11)" CanBeNull="true" />
+      <Column Name="tipoFone" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ddd" Type="System.String" DbType="VarChar(2)" CanBeNull="true" />
+      <Column Name="foneNumero" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="idStatus" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Estoque" Member="Estoques">
+    <Type Name="Estoque">
+      <Column Name="idEstoque" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="idProduto" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="dataMovimentacao" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="operacaoES" Type="System.String" DbType="VarChar(1)" CanBeNull="true" />
+      <Column Name="quantidade" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="idUsuario" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="idVenda" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="alertaQtdeAbaixo" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ItemVenda" Member="ItemVendas">
+    <Type Name="ItemVenda">
+      <Column Name="idItem" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="idVenda" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="idStatusItem" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="idProduto" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="quantidade" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="valorUnitario" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="subTotal" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Produto" Member="Produtos">
+    <Type Name="Produto">
+      <Column Name="idProduto" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="descricao" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="codBarra" Type="System.String" DbType="VarChar(13)" CanBeNull="true" />
+      <Column Name="data" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="valorBRA" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="valorUSA" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="valorVendaBRA" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="valorVendaUSA" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="idTipo" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="idCategoria" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="modelo" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="idUsuario" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="idUsuarioAlteracao" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="dataAlteracao" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.StatusItemVenda" Member="StatusItemVendas">
+    <Type Name="StatusItemVenda">
+      <Column Name="idStatusItemVenda" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="descricao" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.StatusUsuarioVendedor" Member="StatusUsuarioVendedors">
+    <Type Name="StatusUsuarioVendedor">
+      <Column Name="idStatusUsuarioVendedor" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="descricao" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.StatusVenda" Member="StatusVendas">
+    <Type Name="StatusVenda">
+      <Column Name="idStatusVenda" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="descricao" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TipoFone" Member="TipoFones">
+    <Type Name="TipoFone">
+      <Column Name="idTipoFone" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="descricao" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TipoProduto" Member="TipoProdutos">
+    <Type Name="TipoProduto">
+      <Column Name="idTipo" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="codigo" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="descricao" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Usuario" Member="Usuarios">
+    <Type Name="Usuario">
+      <Column Name="idUsuario" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="data" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="nome" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="login" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="senha" Type="System.String" DbType="VarChar(8)" CanBeNull="true" />
+      <Column Name="idStatus" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Venda" Member="Vendas">
+    <Type Name="Venda">
+      <Column Name="idVenda" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="data" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="dataVendaFinalizada" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="dataVendaAlterada" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="idUsuario" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="idUsuarioAlteracao" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="idVendedor" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="idStatusVenda" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="valorTotal" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="valorFinal" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Function Name="dbo.SP_CATEGORIA_PRODUTO" Method="SP_CATEGORIA_PRODUTO">
+    <Parameter Name="idOperacao" Type="System.Int32" DbType="Int" />
+    <Parameter Name="idCategoria" Type="System.Int32" DbType="Int" />
+    <Parameter Name="codigo" Type="System.String" DbType="VarChar(10)" />
+    <Parameter Name="descricao" Type="System.String" DbType="VarChar(30)" />
+    <ElementType Name="SP_CATEGORIA_PRODUTOResult">
+      <Column Name="" Member="Column1" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.SP_VENDEDOR" Method="SP_VENDEDOR">
+    <Parameter Name="idOperacao" Type="System.Int32" DbType="Int" />
+    <Parameter Name="idVendedor" Type="System.Int32" DbType="Int" />
+    <Parameter Name="data" Type="System.DateTime" DbType="SmallDateTime" />
+    <Parameter Name="nome" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="cpf" Type="System.String" DbType="VarChar(11)" />
+    <Parameter Name="tipoFone" Type="System.Int32" DbType="Int" />
+    <Parameter Name="ddd" Type="System.String" DbType="VarChar(2)" />
+    <Parameter Name="foneNumero" Type="System.String" DbType="VarChar(10)" />
+    <Parameter Name="idStatus" Type="System.Int32" DbType="Int" />
+    <ElementType Name="SP_VENDEDORResult">
+      <Column Name="" Member="Column1" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.SP_ESTOQUE" Method="SP_ESTOQUE">
+    <Parameter Name="idOperacao" Type="System.Int32" DbType="Int" />
+    <Parameter Name="idEstoque" Type="System.Int32" DbType="Int" />
+    <Parameter Name="idProduto" Type="System.Int32" DbType="Int" />
+    <Parameter Name="dataMovimentacao" Type="System.DateTime" DbType="SmallDateTime" />
+    <Parameter Name="operacaoES" Type="System.String" DbType="VarChar(1)" />
+    <Parameter Name="quantidade" Type="System.Int32" DbType="Int" />
+    <Parameter Name="idUsuario" Type="System.Int32" DbType="Int" />
+    <Parameter Name="idVenda" Type="System.Int32" DbType="Int" />
+    <Parameter Name="alertaQtdeAbaixo" Type="System.Int32" DbType="Int" />
+    <ElementType Name="SP_ESTOQUEResult">
+      <Column Name="" Member="Column1" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.SP_ITEM_VENDA" Method="SP_ITEM_VENDA">
+    <Parameter Name="idOperacao" Type="System.Int32" DbType="Int" />
+    <Parameter Name="idItem" Type="System.Int32" DbType="Int" />
+    <Parameter Name="idVenda" Type="System.Int32" DbType="Int" />
+    <Parameter Name="idStatusItem" Type="System.Int32" DbType="Int" />
+    <Parameter Name="idProduto" Type="System.Int32" DbType="Int" />
+    <Parameter Name="quantidade" Type="System.Int32" DbType="Int" />
+    <Parameter Name="valorUnitario" Type="System.Decimal" DbType="Decimal(18,2)" />
+    <ElementType Name="SP_ITEM_VENDAResult">
+      <Column Name="" Member="Column1" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.SP_PESQ_CATEGORIA_PRODUTO" Method="SP_PESQ_CATEGORIA_PRODUTO">
+    <Parameter Name="idCategoria" Type="System.Int32" DbType="Int" />
+    <Parameter Name="codigo" Type="System.String" DbType="VarChar(10)" />
+    <Parameter Name="descricao" Type="System.String" DbType="VarChar(30)" />
+    <ElementType Name="SP_PESQ_CATEGORIA_PRODUTOResult">
+      <Column Name="idCategoria" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="codigo" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="descricao" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.SP_PESQ_ESTOQUE" Method="SP_PESQ_ESTOQUE">
+    <Parameter Name="idProduto" Type="System.Int32" DbType="Int" />
+    <Parameter Name="dataMovimentacaoINI" Type="System.DateTime" DbType="SmallDateTime" />
+    <Parameter Name="dataMovimentacaoFIN" Type="System.DateTime" DbType="SmallDateTime" />
+    <Parameter Name="operacaoES" Type="System.String" DbType="VarChar(1)" />
+    <Parameter Name="idUsuario" Type="System.Int32" DbType="Int" />
+    <Parameter Name="idVenda" Type="System.Int32" DbType="Int" />
+    <Parameter Name="alertaQtdeAbaixo" Type="System.Int32" DbType="Int" />
+    <ElementType Name="SP_PESQ_ESTOQUEResult">
+      <Column Name="idProduto" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="descricao" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="operacaoES" Type="System.String" DbType="VarChar(1)" CanBeNull="true" />
+      <Column Name="quantidade" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.SP_PESQ_ITEM_VENDA" Method="SP_PESQ_ITEM_VENDA">
+    <Parameter Name="idVenda" Type="System.Int32" DbType="Int" />
+    <ElementType Name="SP_PESQ_ITEM_VENDAResult">
+      <Column Name="idItem" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="idVenda" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="idStatusItem" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="idProduto" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="quantidade" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="valorUnitario" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="subTotal" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.SP_PESQ_STATUS_ITEM_VENDA" Method="SP_PESQ_STATUS_ITEM_VENDA">
+    <Parameter Name="idStatusItemVenda" Type="System.Int32" DbType="Int" />
+    <Parameter Name="descricao" Type="System.String" DbType="VarChar(10)" />
+    <ElementType Name="SP_PESQ_STATUS_ITEM_VENDAResult">
+      <Column Name="idStatusItemVenda" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="descricao" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.SP_PESQ_STATUS_USUARIO_VENDEDOR" Method="SP_PESQ_STATUS_USUARIO_VENDEDOR">
+    <Parameter Name="idStatusUsuarioVendedor" Type="System.Int32" DbType="Int" />
+    <Parameter Name="descricao" Type="System.String" DbType="VarChar(10)" />
+    <ElementType Name="SP_PESQ_STATUS_USUARIO_VENDEDORResult">
+      <Column Name="idStatusUsuarioVendedor" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="descricao" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.SP_PESQ_STATUS_VENDA" Method="SP_PESQ_STATUS_VENDA">
+    <Parameter Name="idStatusVenda" Type="System.Int32" DbType="Int" />
+    <Parameter Name="descricao" Type="System.String" DbType="VarChar(10)" />
+    <ElementType Name="SP_PESQ_STATUS_VENDAResult">
+      <Column Name="idStatusVenda" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="descricao" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.SP_PESQ_TIPO_FONE" Method="SP_PESQ_TIPO_FONE">
+    <Parameter Name="idTipoFone" Type="System.Int32" DbType="Int" />
+    <Parameter Name="descricao" Type="System.String" DbType="VarChar(10)" />
+    <ElementType Name="SP_PESQ_TIPO_FONEResult">
+      <Column Name="idTipoFone" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="descricao" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.SP_PESQ_TIPO_PRODUTO" Method="SP_PESQ_TIPO_PRODUTO">
+    <Parameter Name="idTipo" Type="System.Int32" DbType="Int" />
+    <Parameter Name="codigo" Type="System.String" DbType="VarChar(10)" />
+    <Parameter Name="descricao" Type="System.String" DbType="VarChar(30)" />
+    <ElementType Name="SP_PESQ_TIPO_PRODUTOResult">
+      <Column Name="idTipo" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="codigo" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="descricao" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.SP_PESQ_USUARIO" Method="SP_PESQ_USUARIO">
+    <Parameter Name="idUsuario" Type="System.Int32" DbType="Int" />
+    <Parameter Name="nome" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="login" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="senha" Type="System.String" DbType="VarChar(8)" />
+    <Parameter Name="idStatus" Type="System.Int32" DbType="Int" />
+    <ElementType Name="SP_PESQ_USUARIOResult">
+      <Column Name="idUsuario" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="data" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="nome" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="login" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="senha" Type="System.String" DbType="VarChar(8)" CanBeNull="true" />
+      <Column Name="idStatus" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.SP_PESQ_VENDA" Method="SP_PESQ_VENDA">
+    <Parameter Name="idVenda" Type="System.Int32" DbType="Int" />
+    <Parameter Name="dataAltINI" Type="System.DateTime" DbType="SmallDateTime" />
+    <Parameter Name="dataAltFIN" Type="System.DateTime" DbType="SmallDateTime" />
+    <Parameter Name="dataFinalINI" Type="System.DateTime" DbType="SmallDateTime" />
+    <Parameter Name="dataFinalFIN" Type="System.DateTime" DbType="SmallDateTime" />
+    <Parameter Name="idVendedor" Type="System.Int32" DbType="Int" />
+    <Parameter Name="idStatusVenda" Type="System.Int32" DbType="Int" />
+    <ElementType Name="SP_PESQ_VENDAResult">
+      <Column Name="idVenda" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="data" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="dataVendaFinalizada" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="dataVendaAlterada" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="idUsuario" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="idUsuarioAlteracao" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="idVendedor" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="idStatusVenda" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="valorTotal" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="valorFinal" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.SP_PESQ_VENDEDOR" Method="SP_PESQ_VENDEDOR">
+    <Parameter Name="idVendedor" Type="System.Int32" DbType="Int" />
+    <Parameter Name="nome" Type="System.String" DbType="VarChar(50)" />
+    <ElementType Name="SP_PESQ_VENDEDORResult">
+      <Column Name="idVendedor" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="data" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="nome" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="cpf" Type="System.String" DbType="VarChar(11)" CanBeNull="true" />
+      <Column Name="tipoFone" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ddd" Type="System.String" DbType="VarChar(2)" CanBeNull="true" />
+      <Column Name="foneNumero" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="idStatus" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.SP_PRODUTO" Method="SP_PRODUTO">
+    <Parameter Name="idOperacao" Type="System.Int32" DbType="Int" />
+    <Parameter Name="idProduto" Type="System.Int32" DbType="Int" />
+    <Parameter Name="descricao" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="codBarra" Type="System.String" DbType="VarChar(13)" />
+    <Parameter Name="data" Type="System.DateTime" DbType="SmallDateTime" />
+    <Parameter Name="valorBRA" Type="System.Decimal" DbType="Decimal(18,2)" />
+    <Parameter Name="valorUSA" Type="System.Decimal" DbType="Decimal(18,2)" />
+    <Parameter Name="valorVendaBRA" Type="System.Decimal" DbType="Decimal(18,2)" />
+    <Parameter Name="valorVendaUSA" Type="System.Decimal" DbType="Decimal(18,2)" />
+    <Parameter Name="idTipo" Type="System.Int32" DbType="Int" />
+    <Parameter Name="idCategoria" Type="System.Int32" DbType="Int" />
+    <Parameter Name="modelo" Type="System.String" DbType="VarChar(30)" />
+    <Parameter Name="idUsuario" Type="System.Int32" DbType="Int" />
+    <Parameter Name="idUsuarioAlteracao" Type="System.Int32" DbType="Int" />
+    <Parameter Name="dataAlteracao" Type="System.DateTime" DbType="SmallDateTime" />
+    <ElementType Name="SP_PRODUTOResult">
+      <Column Name="" Member="Column1" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.SP_STATUS_ITEM_VENDA" Method="SP_STATUS_ITEM_VENDA">
+    <Parameter Name="idOperacao" Type="System.Int32" DbType="Int" />
+    <Parameter Name="idStatusItemVenda" Type="System.Int32" DbType="Int" />
+    <Parameter Name="descricao" Type="System.String" DbType="VarChar(10)" />
+    <ElementType Name="SP_STATUS_ITEM_VENDAResult">
+      <Column Name="" Member="Column1" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.SP_STATUS_USUARIO_VENDEDOR" Method="SP_STATUS_USUARIO_VENDEDOR">
+    <Parameter Name="idOperacao" Type="System.Int32" DbType="Int" />
+    <Parameter Name="idStatusUsuarioVendedor" Type="System.Int32" DbType="Int" />
+    <Parameter Name="descricao" Type="System.String" DbType="VarChar(10)" />
+    <ElementType Name="SP_STATUS_USUARIO_VENDEDORResult">
+      <Column Name="" Member="Column1" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.SP_STATUS_VENDA" Method="SP_STATUS_VENDA">
+    <Parameter Name="idOperacao" Type="System.Int32" DbType="Int" />
+    <Parameter Name="idStatusVenda" Type="System.Int32" DbType="Int" />
+    <Parameter Name="descricao" Type="System.String" DbType="VarChar(10)" />
+    <ElementType Name="SP_STATUS_VENDAResult">
+      <Column Name="" Member="Column1" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.SP_TIPO_FONE" Method="SP_TIPO_FONE">
+    <Parameter Name="idOperacao" Type="System.Int32" DbType="Int" />
+    <Parameter Name="idTipoFone" Type="System.Int32" DbType="Int" />
+    <Parameter Name="descricao" Type="System.String" DbType="VarChar(10)" />
+    <ElementType Name="SP_TIPO_FONEResult">
+      <Column Name="" Member="Column1" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.SP_TIPO_PRODUTO" Method="SP_TIPO_PRODUTO">
+    <Parameter Name="idOperacao" Type="System.Int32" DbType="Int" />
+    <Parameter Name="idTipo" Type="System.Int32" DbType="Int" />
+    <Parameter Name="codigo" Type="System.String" DbType="VarChar(10)" />
+    <Parameter Name="descricao" Type="System.String" DbType="VarChar(30)" />
+    <ElementType Name="SP_TIPO_PRODUTOResult">
+      <Column Name="" Member="Column1" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.SP_USUARIO" Method="SP_USUARIO">
+    <Parameter Name="idOperacao" Type="System.Int32" DbType="Int" />
+    <Parameter Name="idUsuario" Type="System.Int32" DbType="Int" />
+    <Parameter Name="data" Type="System.DateTime" DbType="SmallDateTime" />
+    <Parameter Name="nome" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="login" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="senha" Type="System.String" DbType="VarChar(8)" />
+    <Parameter Name="idStatus" Type="System.Int32" DbType="Int" />
+    <ElementType Name="SP_USUARIOResult">
+      <Column Name="" Member="Column1" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.SP_VENDA" Method="SP_VENDA">
+    <Parameter Name="idOperacao" Type="System.Int32" DbType="Int" />
+    <Parameter Name="idVenda" Type="System.Int32" DbType="Int" />
+    <Parameter Name="data" Type="System.DateTime" DbType="SmallDateTime" />
+    <Parameter Name="dataVendaFinalizada" Type="System.DateTime" DbType="SmallDateTime" />
+    <Parameter Name="dataVendaAlterada" Type="System.DateTime" DbType="SmallDateTime" />
+    <Parameter Name="idUsuario" Type="System.Int32" DbType="Int" />
+    <Parameter Name="idUsuarioAlteracao" Type="System.Int32" DbType="Int" />
+    <Parameter Name="idVendedor" Type="System.Int32" DbType="Int" />
+    <Parameter Name="idStatusVenda" Type="System.Int32" DbType="Int" />
+    <Parameter Name="valorTotal" Type="System.Decimal" DbType="Decimal(18,2)" />
+    <Parameter Name="valorFinal" Type="System.Decimal" DbType="Decimal(18,2)" />
+    <ElementType Name="SP_VENDAResult">
+      <Column Name="" Member="Column1" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.SP_PESQ_PRODUTO" Method="SP_PESQ_PRODUTO">
+    <Parameter Name="idProduto" Type="System.Int32" DbType="Int" />
+    <Parameter Name="descricao" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="codBarra" Type="System.String" DbType="VarChar(13)" />
+    <Parameter Name="idTipo" Type="System.Int32" DbType="Int" />
+    <Parameter Name="idCategoria" Type="System.Int32" DbType="Int" />
+    <Parameter Name="modelo" Type="System.String" DbType="VarChar(30)" />
+    <ElementType Name="SP_PESQ_PRODUTOResult1">
+      <Column Name="idProduto" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="descricao" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="codBarra" Type="System.String" DbType="VarChar(13)" CanBeNull="true" />
+      <Column Name="data" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="valorBRA" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="valorUSA" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="valorVendaBRA" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="valorVendaUSA" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="idTipo" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="idCategoria" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="modelo" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="idUsuario" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="idUsuarioAlteracao" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="dataAlteracao" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+    </ElementType>
+  </Function>
+</Database>
